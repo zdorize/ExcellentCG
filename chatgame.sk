@@ -1,9 +1,11 @@
-# Made by AmazingPika on discord
+#Made by AmazingPika.
 
 #Config
 options:
-	Error_Message: &x&0&0&f&f&f&f&lA&x&2&b&f&f&f&f&ls&x&5&5&f&f&f&f&li&x&8&0&f&f&f&f&la&x&a&a&f&f&f&f&lB&x&d&5&f&f&f&f&lo&x&f&f&f&f&f&f&lx  &8» &bSomething went wrong, check syntaxes.
-	permission_message: &x&0&0&f&f&f&f&lA&x&2&b&f&f&f&f&ls&x&5&5&f&f&f&f&li&x&8&0&f&f&f&f&la&x&a&a&f&f&f&f&lB&x&d&5&f&f&f&f&lo&x&f&f&f&f&f&f&lx  &8» &bHey! You cannot use that commmand!
+	Error_Message: &x&c&6&8&0&0&0&lWitheringMc  &8» &x&c&6&8&0&0&0Something went wrong, check syntaxes.
+	permission_message: &x&c&6&8&0&0&0&lWitheringMc  &8» &x&c&6&8&0&0&0Hey! You cannot use that commmand!
+	prefix: &x&c&6&8&0&0&0&lWitheringMc &8»
+	announce_prefix: &x&c&6&8&0&0&0&lWitheringMc
 	Reward: crate key give %player% chatgames 1
 	Time: 5
 	
@@ -19,41 +21,41 @@ command /chatgame [<text>] [<text>]:
 				if arg-2 is set:
 					if {reactions::*} does not contain arg-2:
 						add arg-2 to {reactions::*}
-						message "&x&0&0&f&f&f&f&lA&x&2&b&f&f&f&f&ls&x&5&5&f&f&f&f&li&x&8&0&f&f&f&f&la&x&a&a&f&f&f&f&lB&x&d&5&f&f&f&f&lo&x&f&f&f&f&f&f&lx &8» &4%arg-2% &bhas been added to the chat games."
+						message "{@prefix} &4%arg-2% &x&c&6&8&0&0&0has been added to the chat games."
 					else:
-						message "&x&0&0&f&f&f&f&lA&x&2&b&f&f&f&f&ls&x&5&5&f&f&f&f&li&x&8&0&f&f&f&f&la&x&a&a&f&f&f&f&lB&x&d&5&f&f&f&f&lo&x&f&f&f&f&f&f&lx &8» &4%arg-2% &bis already in the reaction game."
+						message "{@prefix}&4%arg-2% &x&c&6&8&0&0&0is already in the reaction game."
 				else:
 					message "{@Error_Message}"
 			if arg-1 is "remove":
 				if arg-2 is set:
 					if {reactions::*} contains arg-2: 
 						remove arg-2 from {reactions::*}
-						message "&x&0&0&f&f&f&f&lA&x&2&b&f&f&f&f&ls&x&5&5&f&f&f&f&li&x&8&0&f&f&f&f&la&x&a&a&f&f&f&f&lB&x&d&5&f&f&f&f&lo&x&f&f&f&f&f&f&lx &8» &4%arg-2% &bhas been removed from the chat games."
+						message "{@prefix}&4%arg-2% &x&c&6&8&0&0&0has been removed from the chat games."
 						stop
 					else:
-						message "&x&0&0&f&f&f&f&lA&x&2&b&f&f&f&f&ls&x&5&5&f&f&f&f&li&x&8&0&f&f&f&f&la&x&a&a&f&f&f&f&lB&x&d&5&f&f&f&f&lo&x&f&f&f&f&f&f&lx &8» &4%arg-2% &bis not in the reaction game."
+						message "{@prefix}&4%arg-2% &x&c&6&8&0&0&0is not in the reaction game."
 				else:
 					message "{@Error_Message}"
 			if arg-1 is "list":
 				if arg-2 is not set:
 					if {reactions::*} is set:	
-						message "&x&0&0&f&f&f&f&lA&x&2&b&f&f&f&f&ls&x&5&5&f&f&f&f&li&x&8&0&f&f&f&f&la&x&a&a&f&f&f&f&lB&x&d&5&f&f&f&f&lo&x&f&f&f&f&f&f&lx &8» &b%{reactions::*}%."
+						message "{@prefix}&x&c&6&8&0&0&0%{reactions::*}%."
 				if {reactions::*} is not set:
-					message "&x&0&0&f&f&f&f&lA&x&2&b&f&f&f&f&ls&x&5&5&f&f&f&f&li&x&8&0&f&f&f&f&la&x&a&a&f&f&f&f&lB&x&d&5&f&f&f&f&lo&x&f&f&f&f&f&f&lx &8» &bSet a reaction first with /chatgame add [reaction]"
+					message "{@prefix}&x&c&6&8&0&0&0Set a reaction first with /chatgame add [reaction]"
 			if arg-1 is "now":
 				set {reaction} to random element out of {reactions::*}
 				set {reaction.now} to now
 				broadcast ""
-				broadcast "&x&0&0&f&f&f&f&lA&x&2&b&f&f&f&f&ls&x&5&5&f&f&f&f&li&x&8&0&f&f&f&f&la&x&a&a&f&f&f&f&lB&x&d&5&f&f&f&f&lo&x&f&f&f&f&f&f&lx"
+				broadcast "{@announce_prefix}"
 				broadcast ""
-				broadcast "&7&l| &bA chat game has started! Type &4%{reaction}% &bto gain rewards!"
+				broadcast "&7&l| &x&c&6&8&0&0&0A chat game has started! Type &4%{reaction}% &x&c&6&8&0&0&0to gain rewards!"
 				broadcast ""
 				play sound "block.note_block.xylophone" at volume 1 for all players
 			if arg-1 is not "now" or "list" or "remove" or "add" or "help":
 				message "{@Error_Message}"
 		if arg-1 is "help":
 			send "" to player
-			send "&c&lChat Game Skript made by &4""&lAmazingPika.&4"" &c&lon discord!" to player
+			send "&c&lChat Game Skript made by &4""&lAmazingPika&4"" &c&lon discord!" to player
 			send "" to player
 			send "&c/chatgame now" to player
 			send "&c/chatgame add [Reaction]" to player
@@ -67,9 +69,9 @@ on chat:
 	if message contains {reaction}:
 		set {difference.REACTION} to difference between {reaction.now} and now
 		broadcast ""
-		broadcast "&x&0&0&f&f&f&f&lA&x&2&b&f&f&f&f&ls&x&5&5&f&f&f&f&li&x&8&0&f&f&f&f&la&x&a&a&f&f&f&f&lB&x&d&5&f&f&f&f&lo&x&f&f&f&f&f&f&lx"
+		broadcast "{@announce_prefix}"
 		broadcast ""
-		broadcast "&7&l| &4%player% &bhas gotten &4%{reaction}% &bin &4%{difference.REACTION}%"
+		broadcast "&7&l| &4%player% &x&c&6&8&0&0&0has gotten &4%{reaction}% &x&c&6&8&0&0&0in &4%{difference.REACTION}%"
 		broadcast ""
 		play sound "block.note_block.xylophone" at volume 1 for all players
 		make console execute command "{@Reward}"
@@ -81,8 +83,8 @@ every {@Time} minutes:
 	set {reaction} to random element out of {reactions::*}
 	set {reaction.now} to now
 	broadcast ""
-	broadcast "&x&0&0&f&f&f&f&lA&x&2&b&f&f&f&f&ls&x&5&5&f&f&f&f&li&x&8&0&f&f&f&f&la&x&a&a&f&f&f&f&lB&x&d&5&f&f&f&f&lo&x&f&f&f&f&f&f&lx"
+	broadcast "{@announce_prefix}"
 	broadcast ""
-	broadcast "&7&l| &bA chat game has started! Type &4%{reaction}% &bto gain rewards!"
+	broadcast "&7&l| &x&c&6&8&0&0&0A chat game has started! Type &4%{reaction}% &x&c&6&8&0&0&0to gain rewards!"
 	broadcast ""
 	play sound "block.note_block.xylophone" at volume 1 for all players
