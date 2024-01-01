@@ -1,4 +1,4 @@
-#Made by AmazingPika
+# Made by Dorize
 	
 on load:
     send "███████╗██╗  ██╗ ██████╗███████╗██╗     ██╗     ███████╗███╗   ██╗████████╗" to console
@@ -13,8 +13,8 @@ on load:
     send "                      ██║     ██║  ███╗                                    " to console
     send "                      ██║     ██║   ██║                                    " to console
     send "                      ╚██████╗╚██████╔╝                                    " to console
-    send "                       ╚═════╝ ╚═════╝                                      " to console
-    send "                         -AmazingPika                                      " to console
+    send "                       ╚═════╝ ╚═════╝                                     " to console
+    send "                           -Dorize                                         " to console
 
 #Config
 options:
